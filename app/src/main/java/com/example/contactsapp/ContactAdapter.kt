@@ -9,15 +9,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
-import androidx.core.content.contentValuesOf
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class ContactAdapter(var contactList: List<Contact>,var context: Context):RecyclerView.Adapter<ContactsViewHolder>() {
-    lateinit var cvContact:CardView
+class ContactAdapter(var contactList: List<Contact>,var context: Context):RecyclerView.Adapter<ContactsViewHolder>(){
+//lateinit var cvContact:CardView
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsViewHolder {
         var itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.contact_list_items, parent, false)
+            .inflate(R.layout.list_items, parent, false)
         return ContactsViewHolder(itemView)
 }
     override fun onBindViewHolder(holder: ContactsViewHolder, position: Int) {
@@ -31,10 +30,13 @@ class ContactAdapter(var contactList: List<Contact>,var context: Context):Recycl
 //           .placeholder(R.drawable.placeholder)
             .resize(80,80)
             .into(holder.imCintact)
-
         holder.cvContact.setOnClickListener{
   var intent=Intent(context,Contacts::class.java)
             intent.putExtra("name",currentContact.name)
+            intent.putExtra("phone",currentContact.phoneNumber)
+            intent.putExtra("email",currentContact.email)
+            intent.putExtra("image",currentContact.imageUrl)
+
             context.startActivity(intent)
         }
         holder.imCintact.setOnClickListener{
@@ -50,6 +52,6 @@ class ContactsViewHolder(var itemView:View):RecyclerView.ViewHolder(itemView){
     var tvPhoneNum=itemView.findViewById<TextView>(R.id.tvPhoneNum)
     var tvEmail=itemView.findViewById<TextView>(R.id.tvEmail)
     var imCintact=itemView.findViewById<ImageView>(R.id.imgContact)
-var cvContact=itemView.findViewById<CardView>(R.id.cvContact)
+ var cvContact=itemView.findViewById<CardView>(R.id.cvContact)
 
 }
