@@ -12,7 +12,6 @@ class Contacts : AppCompatActivity() {
     lateinit var tvPhone:TextView
     lateinit var tvEmail2:TextView
     lateinit var imgContact: ImageView
-    lateinit var tvMessage:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contacts)
