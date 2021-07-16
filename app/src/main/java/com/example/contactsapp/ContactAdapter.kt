@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
 class ContactAdapter(var contactList: List<Contact>,var context: Context):RecyclerView.Adapter<ContactsViewHolder>(){
-//lateinit var cvContact:CardView
+//lateinit var cdContact:CardViewf
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsViewHolder {
         var itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.list_items, parent, false)
@@ -21,22 +21,21 @@ class ContactAdapter(var contactList: List<Contact>,var context: Context):Recycl
 }
     override fun onBindViewHolder(holder: ContactsViewHolder, position: Int) {
         var currentContact=contactList.get(position)
-        holder.tvName.text=currentContact.name
-        holder.tvPhoneNum.text=currentContact.phoneNumber
-        holder.tvEmail.text=currentContact.email
+        holder.tvname.text=currentContact.name
+        holder.tvphone.text=currentContact.phoneNumber
+        holder.tvemail.text=currentContact.email
         Picasso.get()
             .load(currentContact.imageUrl)
             .centerCrop()
 //           .placeholder(R.drawable.placeholder)
             .resize(80,80)
             .into(holder.imCintact)
-        holder.cvContact.setOnClickListener{
+        holder.cdContact.setOnClickListener{
   var intent=Intent(context,Contacts::class.java)
             intent.putExtra("name",currentContact.name)
             intent.putExtra("phone",currentContact.phoneNumber)
             intent.putExtra("email",currentContact.email)
             intent.putExtra("image",currentContact.imageUrl)
-
             context.startActivity(intent)
         }
         holder.imCintact.setOnClickListener{
@@ -48,10 +47,10 @@ class ContactAdapter(var contactList: List<Contact>,var context: Context):Recycl
     }
 }
 class ContactsViewHolder(var itemView:View):RecyclerView.ViewHolder(itemView){
-    var tvName=itemView.findViewById<TextView>(R.id.tvName)
-    var tvPhoneNum=itemView.findViewById<TextView>(R.id.tvPhoneNum)
-    var tvEmail=itemView.findViewById<TextView>(R.id.tvEmail)
-    var imCintact=itemView.findViewById<ImageView>(R.id.imgContact)
- var cvContact=itemView.findViewById<CardView>(R.id.cvContact)
+    var tvname=itemView.findViewById<TextView>(R.id.tvname)
+    var tvphone=itemView.findViewById<TextView>(R.id.tvphone)
+    var tvemail=itemView.findViewById<TextView>(R.id.tvemail)
+    var imCintact=itemView.findViewById<ImageView>(R.id.imageView)
+ var cdContact=itemView.findViewById<CardView>(R.id.cdContact)
 
 }

@@ -17,7 +17,6 @@ class Contacts : AppCompatActivity() {
         var phone=intent.getStringExtra("phone")
         var email=intent.getStringExtra("email")
         var image=intent.getStringExtra("imageUrl")
-
         tvName3.findViewById<TextView>(R.id.tvName2)
         tvName3.text=name
         tvPhone.findViewById<TextView>(R.id.tvPhone2)
