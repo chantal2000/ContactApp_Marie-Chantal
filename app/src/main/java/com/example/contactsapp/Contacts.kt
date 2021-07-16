@@ -16,7 +16,7 @@ class Contacts : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contacts)
-        var name=intent.getStringExtra("Name")
+        var name=intent.getStringExtra("name")
         var phone=intent.getStringExtra("phone")
         var email=intent.getStringExtra("email")
         var image=intent.getStringExtra("image").toString()
@@ -26,8 +26,8 @@ class Contacts : AppCompatActivity() {
         tvPhone.text=phone
        val tvEmail2= findViewById<TextView>(R.id.tvEmail2)
         tvEmail2.text=email
-        val tvMessage= findViewById<TextView>(R.id.tvMessage)
-        tvMessage.text=image
+//        val tvMessage= findViewById<TextView>(R.id.tvMessage)
+//        tvMessage.text=image
         val imgContact = findViewById<ImageView>(R.id.imageView2)
         Picasso.get().load(image).into(imgContact)
 
