@@ -2,13 +2,16 @@ package com.example.contactsapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.squareup.picasso.Picasso
 
 class Contacts : AppCompatActivity() {
     lateinit var tvName3:TextView
     lateinit var tvPhone:TextView
     lateinit var tvEmail2:TextView
+    lateinit var imgContact: ImageView
     lateinit var tvMessage:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,15 +19,18 @@ class Contacts : AppCompatActivity() {
         var name=intent.getStringExtra("Name")
         var phone=intent.getStringExtra("phone")
         var email=intent.getStringExtra("email")
-        var image=intent.getStringExtra("imageUrl")
-        tvName3.findViewById<TextView>(R.id.tvName2)
+        var image=intent.getStringExtra("image").toString()
+        val tvName3= findViewById<TextView>(R.id.tvName2)
         tvName3.text=name
-        tvPhone.findViewById<TextView>(R.id.tvPhone2)
+        val tvPhone =findViewById<TextView>(R.id.tvPhone2)
         tvPhone.text=phone
-        tvEmail2.findViewById<TextView>(R.id.tvEmail2)
+       val tvEmail2= findViewById<TextView>(R.id.tvEmail2)
         tvEmail2.text=email
-        tvMessage.findViewById<TextView>(R.id.tvMessage)
+        val tvMessage= findViewById<TextView>(R.id.tvMessage)
         tvMessage.text=image
+        val imgContact = findViewById<ImageView>(R.id.imageView2)
+        Picasso.get().load(image).into(imgContact)
+
 
     }
 }

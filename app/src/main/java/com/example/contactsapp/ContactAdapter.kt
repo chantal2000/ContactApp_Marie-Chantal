@@ -30,12 +30,14 @@ class ContactAdapter(var contactList: List<Contact>,var context: Context):Recycl
 //           .placeholder(R.drawable.placeholder)
             .resize(80,80)
             .into(holder.imCintact)
+
         holder.cdContact.setOnClickListener{
   var intent=Intent(context,Contacts::class.java)
             intent.putExtra("name",currentContact.name)
             intent.putExtra("phone",currentContact.phoneNumber)
             intent.putExtra("email",currentContact.email)
             intent.putExtra("image",currentContact.imageUrl)
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             context.startActivity(intent)
         }
         holder.imCintact.setOnClickListener{
